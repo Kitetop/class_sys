@@ -1,0 +1,7 @@
+{
+    "require": {
+        "symfony/var-dumper": "^4.1",
+        "mongodb/mongodb": "^1.4",
+        "symfony/console": "^4.1"
+    }
+}

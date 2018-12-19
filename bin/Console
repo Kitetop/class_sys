@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+/**
+ * 脚本命令的入口文件
+ * @author Kitetop <1363215999@qq.com>
+ * @version Release: v1.0
+ * Date: 2018/11/24
+ */
+
+namespace App;
+
+use App\Console\Index;
+use App\Kernel\Console;
+use App\Kernel\App;
+use Kite\Cycle;
+
+// 加载框架的核心的文件、启动框架
+require_once __DIR__ . '/../app/Kernel/App.php';
+//类的自动加载
+spl_autoload_register('\App\Kernel\App::load');
+App::initApp();
+
+/**
+ * 注册Commend区
+ */
+$application = new Console();
+$application->add(new Index());
+$application->run();

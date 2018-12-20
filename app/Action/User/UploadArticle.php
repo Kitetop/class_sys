@@ -28,7 +28,11 @@ class UploadArticle extends AbstractAction
             'rules' => ['required'],
             'message' => '文章提示信息不能为空'
         ],
-        'first_author' => ['desc' => '第一作者'],
+        'first_author' => [
+            'desc' => '第一作者',
+            'rules' => ['required'],
+            'message' => '第一作者不能为空'
+        ],
         'second_author' => ['desc' => '第二作者'],
         'third_author' => ['desc' => '第三作者'],
         'wish' => ['desc' => '期望审稿人'],
@@ -45,12 +49,7 @@ class UploadArticle extends AbstractAction
     protected function doPost()
     {
         $this->validateUploadFile($this->fileRules);
-        //$this->validate($this->postRules);
-//        if (!isset($this->params['first_author'])
-//            && !isset($this->params['second_author'])
-//            && !isset($this->params['third_author'])) {
-//            throw new \Exception('参稿作者不能全为空', 400);
-//        }
+        $this->validate($this->postRules);
         $service = $this->Service('User\UploadArticle');
         $service->article = $this->validatedFiles['article'];
         $service->up_id = $this->params['up_id'];
@@ -60,8 +59,8 @@ class UploadArticle extends AbstractAction
         $service->second_author = $this->params['second_author'];
         $service->third_author = $this->params['third_author'];
         $service->wish = $this->params['wish'];
-        $result = $service->run();
-        $this->response($result);
+        $service->run();
+        $this->response('message','论文提交成功！');
         $this->code(201);
     }
 }

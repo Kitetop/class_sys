@@ -37,6 +37,7 @@ class Router extends BaseRouter
             ['path' => '/user/register', 'action' => 'User\Register', 'method' => 'POST'],
             ['path' => '/user/active', 'action' => 'User\ActiveList', 'method' => 'GET'],
             ['path' => '/user/upload', 'action' => 'User\UploadArticle', 'method' => 'POST'],
+            ['path' => '/user/article', 'action' => 'User\ArticleList', 'method' => 'GET'],
         ];
         return $routers;
     }

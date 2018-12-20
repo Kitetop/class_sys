@@ -96,6 +96,7 @@ final class MySQL
         if (!$exec->execute($this->bindValues)) {
             throw new \Exception('SQL operation error :' . $exec->errorInfo()[2], 500);
         }
+        $this->bindValues = [];
         return $exec;
     }
 

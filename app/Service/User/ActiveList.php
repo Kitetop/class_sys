@@ -22,6 +22,7 @@ class ActiveList extends AbstractService
             ->execute()->fetchAll(PDO::FETCH_ASSOC);
         $this->setType($result);
         $total = $active->count()['total'];
+        $result['total'] = $total;
         $result['meta'] = [
             'page' => $this->page,
             'total' => $total,

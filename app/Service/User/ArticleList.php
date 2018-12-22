@@ -25,6 +25,7 @@ class ArticleList extends AbstractService
             ->execute()->fetchAll(PDO::FETCH_ASSOC);
         $this->assembleDate($result);
         $total = $article->count(['up_id' => $this->id])['total'];
+        $result['total'] = $total;
         $result['meta'] = [
             'page' => $this->page,
             'total' => $total,

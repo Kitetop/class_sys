@@ -30,9 +30,6 @@ class UploadArticle extends AbstractService
             throw new \Exception('您已经提交过，请勿重新提交', 400);
         }
         $url = $this->setUrl();
-        if (!($this->article->moveTo($this->config['upload'] . '/' . $url))) {
-            throw new \Exception('文件上传失败，请稍后再试', 500);
-        }
         $article->import([
             'up_id' => $this->up_id,
             'active_id' => $this->active_id,
@@ -44,6 +41,9 @@ class UploadArticle extends AbstractService
             'article_url' => $url,
             'state' => 0,
         ])->save();
+        if (!($this->article->moveTo($this->config['upload'] . '/' . $url))) {
+            throw new \Exception('文件上传失败，请稍后再试', 500);
+        }
     }
 
     private function setUrl()

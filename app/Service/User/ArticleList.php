@@ -46,6 +46,7 @@ class ArticleList extends AbstractService
             $value['title'] = (new Sys_active(['id' => $value['active_id']]))->title;
             $value['second_author'] != null || $value['second_author'] = '未设置';
             $value['third_author'] != null || $value['third_author'] = '未设置';
+            $value['wish'] != null || $value['wish'] = '未设置';
         }
     }
 }

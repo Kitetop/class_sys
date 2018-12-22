@@ -2,3 +2,5 @@
 /vendor
 *.swp
 *.swo
+dev.php
+/upload

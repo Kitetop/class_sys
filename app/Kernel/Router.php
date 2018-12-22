@@ -38,6 +38,9 @@ class Router extends BaseRouter
             ['path' => '/user/active', 'action' => 'User\ActiveList', 'method' => 'GET'],
             ['path' => '/user/upload', 'action' => 'User\UploadArticle', 'method' => 'POST'],
             ['path' => '/user/article', 'action' => 'User\ArticleList', 'method' => 'GET'],
+
+            //admin模块
+            ['path' => '/admin/invite', 'action' => 'Admin\InviteCheck', 'method' => 'POST']
         ];
         return $routers;
     }

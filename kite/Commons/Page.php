@@ -25,4 +25,21 @@ class Page
 
         return [$data['prev'], $data['next']];
     }
+
+    /**
+     * @param array $result
+     * @param $total
+     * @param $page
+     * @param $limit
+     * 对数据进行封装
+     */
+    public static function assemble(array &$result, $total, $page, $limit)
+    {
+        $result['total'] = $total;
+        $result['meta'] = [
+            'page' => $page,
+            'total' => $total,
+            'pages' => ceil($total / $limit)
+        ];
+    }
 }

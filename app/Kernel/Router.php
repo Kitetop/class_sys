@@ -39,9 +39,11 @@ class Router extends BaseRouter
             ['path' => '/user/upload', 'action' => 'User\UploadArticle', 'method' => 'POST'],
             ['path' => '/user/article', 'action' => 'User\ArticleList', 'method' => 'GET'],
             ['path' => '/user/invite', 'action' => 'User\ShowInvite', 'method' => 'GET'],
+            ['path' => '/user/react', 'action' => 'User\ReactInvite', 'method' => 'GET'],
 
             //admin模块
-            ['path' => '/admin/invite', 'action' => 'Admin\InviteCheck', 'method' => 'POST']
+            ['path' => '/admin/invite', 'action' => 'Admin\InviteCheck', 'method' => 'POST'],
+            ['path' => '/admin/refuse', 'action' => 'Admin\InviteRefuse', 'method' => 'GET'],
         ];
         return $routers;
     }

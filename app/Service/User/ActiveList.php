@@ -8,6 +8,7 @@
 namespace App\Service\User;
 
 use App\Model\Sys_active;
+use Kite\Commons\Page;
 use Kite\Service\AbstractService;
 use PDO;
 
@@ -22,12 +23,7 @@ class ActiveList extends AbstractService
             ->execute()->fetchAll(PDO::FETCH_ASSOC);
         $this->setType($result);
         $total = $active->count()['total'];
-        $result['total'] = $total;
-        $result['meta'] = [
-            'page' => $this->page,
-            'total' => $total,
-            'pages' => ceil($total / $this->limit)
-        ];
+        Page::assemble($result, $total, $this->page, $this->limit);
         return $result;
     }
 

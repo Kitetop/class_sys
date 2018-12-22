@@ -10,6 +10,7 @@ namespace App\Service\User;
 
 use App\Model\Sys_active;
 use App\Model\Sys_article;
+use Kite\Commons\Page;
 use Kite\Service\AbstractService;
 use PDO;
 
@@ -25,12 +26,7 @@ class ArticleList extends AbstractService
             ->execute()->fetchAll(PDO::FETCH_ASSOC);
         $this->assembleDate($result);
         $total = $article->count(['up_id' => $this->id])['total'];
-        $result['total'] = $total;
-        $result['meta'] = [
-            'page' => $this->page,
-            'total' => $total,
-            'pages' => ceil($total / $this->limit)
-        ];
+        Page::assemble($result, $total, $this->page, $this->limit);
         return $result;
     }
 

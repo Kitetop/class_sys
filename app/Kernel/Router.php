@@ -44,6 +44,7 @@ class Router extends BaseRouter
             //admin模块
             ['path' => '/admin/invite', 'action' => 'Admin\InviteCheck', 'method' => 'POST'],
             ['path' => '/admin/refuse', 'action' => 'Admin\InviteRefuse', 'method' => 'GET'],
+            ['path' => '/admin/distribute', 'action' => 'Admin\Distribute', 'method' => 'GET'],
         ];
         return $routers;
     }

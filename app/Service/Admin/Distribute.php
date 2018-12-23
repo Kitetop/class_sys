@@ -62,7 +62,6 @@ class Distribute extends AbstractService
     {
         foreach ($result as &$value) {
             unset($value['article_url']);
-            unset($value['state']);
             $value['second_author'] == null && $value['second_author'] = '未设置';
             $value['third_author'] == null && $value['third_author'] = '未设置';
             $value['wish'] == null && $value['wish'] = '未设置';

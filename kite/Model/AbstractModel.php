@@ -44,8 +44,8 @@ Abstract class AbstractModel
 
     public function __get($name)
     {
-        if (!isset($this->rows[$name])) {
-            throw new \Exception('this value not exist in your table', 500);
+        if (!array_key_exists($name, $this->rows)) {
+            throw new \Exception('this value ' . $name .' not exist in your table', 500);
         }
         return $this->rows[$name];
     }

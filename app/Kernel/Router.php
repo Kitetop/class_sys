@@ -46,6 +46,7 @@ class Router extends BaseRouter
             ['path' => '/admin/refuse', 'action' => 'Admin\InviteRefuse', 'method' => 'GET'],
             ['path' => '/admin/distribute', 'action' => 'Admin\Distribute', 'method' => 'GET'],
             ['path' => '/admin/recommend', 'action' => 'Admin\Recommend', 'method' => 'POST'],
+            ['path' => '/admin/active', 'action' => 'Admin\AddActive', 'method' => 'POST'],
         ];
         return $routers;
     }

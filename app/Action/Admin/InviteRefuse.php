@@ -26,7 +26,7 @@ class InviteRefuse extends AbstractAction
         ],
         'limit' => [
             'rules' => ['Logic:gr:0'],
-            'default' => 10,
+            'default' => 5,
             'message' => '非法的页面显示条数',
         ],
         'id' => [
@@ -45,7 +45,7 @@ class InviteRefuse extends AbstractAction
         $service->id = $this->params['id'];
         $result = $service->run();
         $url = $this->cycle->config('rootUrl') . '/admin/refuse?';
-        list($result['pre'], $result['next']) = Page::simple($result['meta'], $url, $this->params);
+        list($result['prev'], $result['next']) = Page::simple($result['meta'], $url, $this->params);
         unset($result['meta']);
         $this->response($result);
         $this->code(200);

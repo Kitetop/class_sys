@@ -30,6 +30,13 @@ class InviteCheck extends AbstractService
         if(!$owner->exist()) {
             throw new Exception('你没有权限进行如下操作', 400);
         }
+        if($this->old_check_id != null) {
+            $check = new Sys_check(['up_id' => $this->up_id, 'active_id' => $this->active_id, 'check_id' => $this->old_check_id]);
+            if($check->exist()) {
+                $check->agree = Sys_check::STATUS_REOEDER;
+                $check->save();
+            }
+        }
         $article = new Sys_article(['up_id' => $this->up_id, 'active_id']);
         $active = new Sys_active(['id' => $this->active_id]);
         $check = new Sys_check(['active_id' => $this->active_id, 'up_id' => $this->up_id, 'check_id' => $this->check_id]);

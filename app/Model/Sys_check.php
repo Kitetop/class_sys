@@ -17,6 +17,7 @@ class Sys_check extends AbstractModel
     const STATUS_AGREE = 1;
     const STATUS_REFUSE = 2;
     const STATUS_WAITE = 3;
+    const STATUS_REOEDER = 4;
 
     /**
      * 初始分数以及默认的完成与否状态

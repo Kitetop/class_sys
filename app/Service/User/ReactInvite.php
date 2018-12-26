@@ -8,6 +8,7 @@
 namespace App\Service\User;
 
 
+use App\Model\Sys_article;
 use App\Model\Sys_check;
 use Kite\Service\AbstractService;
 use Exception;
@@ -28,6 +29,11 @@ class ReactInvite extends AbstractService
             throw new Exception('审核记录为空,无需修改', 400);
         }
         $check->agree = $this->type;
+        if ($this->type == Sys_check::STATUS_REFUSE) {
+            $article = new Sys_article(['id' => $this->article_id]);
+            $article->state = $article->state - 1 ;
+            $article->save();
+        }
         $check->save();
     }
 }

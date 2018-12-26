@@ -53,5 +53,7 @@ class InviteCheck extends AbstractService
             'agree' => Sys_check::STATUS_WAITE,
             'check_id' => $this->check_id
         ])->save();
+        $article->state = $article->state + 1;
+        $article->save();
     }
 }

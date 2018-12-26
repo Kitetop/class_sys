@@ -26,7 +26,7 @@ class Distribute extends AbstractAction
         ],
         'limit' => [
             'rules' => ['Logic:gt:0'],
-            'default' => 10,
+            'default' => 5,
             'message' => '非法的页面显示数目',
         ],
         'id' => [

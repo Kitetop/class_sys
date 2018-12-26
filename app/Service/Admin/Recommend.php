@@ -41,7 +41,7 @@ class Recommend extends AbstractService
             ->execute()->fetchAll(PDO::FETCH_ASSOC);
         $result = $this->getResult($authors, $checkers, $hasChecks);
         if(empty($result)) {
-            throw new Exception('暂时没有符合条件的审核者可以为此论文审稿', 404);
+            throw new Exception('暂时没有符合条件的审核者可以为此论文审稿', 200);
         }
         return $result;
 

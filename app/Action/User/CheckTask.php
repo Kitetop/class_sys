@@ -9,6 +9,7 @@ namespace App\Action\User;
 
 
 use Kite\Action\AbstractAction;
+use Kite\Commons\Page;
 
 /**
  * Class CheckTask
@@ -36,7 +37,7 @@ class CheckTask extends AbstractAction
     protected function doGet()
     {
         $this->validate($this->getRules);
-        $service = $this->Service('User\CheckTak');
+        $service = $this->Service('User\CheckTask');
         $service->id = $this->params['id'];
         $service->page = $this->params['page'];
         $service->limit = $this->params['limit'];

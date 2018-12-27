@@ -10,21 +10,27 @@ namespace App\Service\User;
 
 use App\Model\Sys_check;
 use App\Model\Sys_grade;
+use App\Model\Sys_user;
 use Kite\Service\AbstractService;
 use Exception;
 
 /**
  * Class UploadGrade
  * @package App\Service\User
- * step1:判断分数是否是符合设定需求的分数
- * step2:根据article_id 、id(check_id)找到check表中的up_id、active_id
- * step3:将分数构成一个序列化的数组存储到check表中的grade字段
- * step4:将总分存储到Sys_grade表中
+ * step1:判断该用户是否有进行评分的权限
+ * step2:判断分数是否是符合设定需求的分数
+ * step3:根据article_id 、id(check_id)找到check表中的up_id、active_id
+ * step4:将分数构成一个序列化的数组存储到check表中的grade字段
+ * step5:将总分存储到Sys_grade表中
  */
 class UploadGrade extends AbstractService
 {
     protected function execute()
     {
+        $user = new Sys_user(['id' => $this->id, 'status' => Sys_user::USER_CHECK]);
+        if(!$user->exist()) {
+            throw new Exception('你没有权限给稿件进行评分', 200);
+        }
         $grade = [-2, -1, 0, 1, 2];
         if (!in_array($this->original_grade, $grade)
             || !in_array($this->format_grade, $grade)

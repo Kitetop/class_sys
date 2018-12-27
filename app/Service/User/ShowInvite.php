@@ -11,6 +11,7 @@ namespace App\Service\User;
 use App\Model\Sys_active;
 use App\Model\Sys_article;
 use App\Model\Sys_check;
+use App\Model\Sys_user;
 use Kite\Service\AbstractService;
 use PDO;
 
@@ -23,6 +24,10 @@ class ShowInvite extends AbstractService
 {
     protected function execute()
     {
+        $user = new Sys_user(['id' => $this->id, 'status' => Sys_user::USER_CHECK]);
+        if(!$user->exist()) {
+            throw new Exception('你没有权限查看邀请', 200);
+        }
         $check = new Sys_check();
         $result = $check->find()->where(['check_id' => $this->id, 'agree' => Sys_check::STATUS_WAITE])
             ->page(($this->page - 1) * $this->limit, $this->limit)

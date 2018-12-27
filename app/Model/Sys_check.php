@@ -24,6 +24,16 @@ class Sys_check extends AbstractModel
      */
     const STATE_GRADE = 0;
     const STATE_DEFAULT = 2;
+    const STATE_FINISH = 1;
+
+    /**
+     * 分数等级
+     */
+    const REJECT = -2;
+    const MINOR_REJECT = -1;
+    const NEUTRAL = 0;
+    const MINOR_ACCEPT = 1;
+    const ACCEPT = 2;
 
     protected function table()
     {

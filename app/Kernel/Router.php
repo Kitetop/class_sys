@@ -40,6 +40,9 @@ class Router extends BaseRouter
             ['path' => '/user/article', 'action' => 'User\ArticleList', 'method' => 'GET'],
             ['path' => '/user/invite', 'action' => 'User\ShowInvite', 'method' => 'GET'],
             ['path' => '/user/react', 'action' => 'User\ReactInvite', 'method' => 'GET'],
+            ['path' => '/user/grade', 'action' => 'User\UploadGrade', 'method' => 'POST'],
+            ['path' => '/user/task' , 'action' => 'User\CheckTask', 'method' => 'GET'],
+            ['path' => '/user/mygrade', 'action' => 'User\GetGrade', 'method' => 'GET'],
 
             //admin模块
             ['path' => '/admin/invite', 'action' => 'Admin\InviteCheck', 'method' => 'POST'],

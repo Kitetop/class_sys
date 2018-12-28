@@ -37,7 +37,7 @@ class InviteCheck extends AbstractService
                 $check->save();
             }
         }
-        $article = new Sys_article(['up_id' => $this->up_id, 'active_id']);
+        $article = new Sys_article(['up_id' => $this->up_id, 'active_id' => $this->active_id]);
         $active = new Sys_active(['id' => $this->active_id]);
         $check = new Sys_check(['active_id' => $this->active_id, 'up_id' => $this->up_id, 'check_id' => $this->check_id]);
         if($check->exist()) {

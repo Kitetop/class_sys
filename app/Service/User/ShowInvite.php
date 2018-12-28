@@ -13,6 +13,7 @@ use App\Model\Sys_article;
 use App\Model\Sys_check;
 use App\Model\Sys_user;
 use Kite\Service\AbstractService;
+use Exception;
 use PDO;
 
 /**

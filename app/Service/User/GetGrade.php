@@ -58,12 +58,13 @@ class GetGrade extends AbstractService
             unset($value['state']);
             unset($value['up_id']);
             unset($value['agree']);
-            $value['original_grade'] = unserialize($value['grade'])['original_grade'];
-            $value['format_grade'] = unserialize($value['grade'])['format_grade'];
-            $value['content_grade'] = unserialize($value['grade'])['content_grade'];
-            $value['reference_grade'] = unserialize($value['grade'])['reference_grade'];
-            $value['whole_grade'] = unserialize($value['grade'])['whole_grade'];
-            $value['total'] = unserialize($value['grade'])['total'];
+            $grade = unserialize($value['grade']);
+            $value['original_grade'] = $grade['original_grade'];
+            $value['format_grade'] = $grade['format_grade'];
+            $value['content_grade'] = $grade['content_grade'];
+            $value['reference_grade'] = $grade['reference_grade'];
+            $value['whole_grade'] = $grade['whole_grade'];
+            $value['total'] = $grade['total'];
             unset($value['grade']);
             $active = new Sys_active(['id' => $value['active_id']]);
             if ($active->type == Sys_active::NONE_TYPE) {

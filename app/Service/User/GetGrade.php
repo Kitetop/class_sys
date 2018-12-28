@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Kitetop <1363215999@qq.com>
- * @version Release:
+ * @version Release: v1.0
  * Date: 2018-12-27
  */
 
@@ -58,7 +58,13 @@ class GetGrade extends AbstractService
             unset($value['state']);
             unset($value['up_id']);
             unset($value['agree']);
-            $value['grade'] = unserialize($value['grade']);
+            $value['original_grade'] = unserialize($value['grade'])['original_grade'];
+            $value['format_grade'] = unserialize($value['grade'])['format_grade'];
+            $value['content_grade'] = unserialize($value['grade'])['content_grade'];
+            $value['reference_grade'] = unserialize($value['grade'])['reference_grade'];
+            $value['whole_grade'] = unserialize($value['grade'])['whole_grade'];
+            $value['total'] = unserialize($value['grade'])['total'];
+            unset($value['grade']);
             $active = new Sys_active(['id' => $value['active_id']]);
             if ($active->type == Sys_active::NONE_TYPE) {
                 $value['check_name'] = (new Sys_user(['id' => $value['check_id']]))->name;

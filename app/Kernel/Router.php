@@ -43,6 +43,7 @@ class Router extends BaseRouter
             ['path' => '/user/grade', 'action' => 'User\UploadGrade', 'method' => 'POST'],
             ['path' => '/user/task' , 'action' => 'User\CheckTask', 'method' => 'GET'],
             ['path' => '/user/mygrade', 'action' => 'User\GetGrade', 'method' => 'GET'],
+            ['path' => '/spider', 'action' => 'Spider', 'method' => 'GET'],
 
             //admin模块
             ['path' => '/admin/invite', 'action' => 'Admin\InviteCheck', 'method' => 'POST'],

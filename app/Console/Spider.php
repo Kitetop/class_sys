@@ -1,8 +1,8 @@
 <?php
 /**
  * @author Kitetop <1363215999@qq.com>
- * @version Release:
- * Date: 2018/11/24
+ * @version Release: v1.0
+ * Date: 2018-12-30
  */
 
 namespace App\Console;
@@ -11,14 +11,7 @@ use Kite\Console\AbstractConsole;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-
-/**
- * Class Index
- * @package App\Console
- *
- * 项目入口文件
- */
-class Index extends AbstractConsole
+class Spider extends AbstractConsole
 {
     public function __construct($name = null)
     {
@@ -27,15 +20,14 @@ class Index extends AbstractConsole
 
     protected function configure()
     {
-        $this->setName('start')->setDescription('This is Index.php console script');
+        $this->setName('spider')->setDescription('This is Spider console script');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $service = $this->Service('Index');
-        $service->username = 'kite';
+        $service = $this->Service('Spider');
         $data = $service->run();
-        echo $data;
+        var_dump($data);
 
     }
 }

@@ -12,7 +12,7 @@ namespace App;
 use App\Console\Index;
 use App\Kernel\Console;
 use App\Kernel\App;
-use Kite\Cycle;
+use App\Console\Spider;
 
 // 加载框架的核心的文件、启动框架
 require_once __DIR__ . '/../app/Kernel/App.php';
@@ -25,4 +25,5 @@ App::initApp();
  */
 $application = new Console();
 $application->add(new Index());
+$application->add(new Spider());
 $application->run();

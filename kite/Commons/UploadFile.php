@@ -68,4 +68,9 @@ class UploadFile extends SplFileInfo
     {
         return pathinfo($this->info['name'], PATHINFO_EXTENSION);
     }
+
+    public function getFile()
+    {
+        return $this->info['tmp_name'];
+    }
 }

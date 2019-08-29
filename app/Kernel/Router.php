@@ -41,7 +41,7 @@ class Router extends BaseRouter
             ['path' => '/user/invite', 'action' => 'User\ShowInvite', 'method' => 'GET'],
             ['path' => '/user/react', 'action' => 'User\ReactInvite', 'method' => 'GET'],
             ['path' => '/user/grade', 'action' => 'User\UploadGrade', 'method' => 'POST'],
-            ['path' => '/user/task' , 'action' => 'User\CheckTask', 'method' => 'GET'],
+            ['path' => '/user/task', 'action' => 'User\CheckTask', 'method' => 'GET'],
             ['path' => '/user/mygrade', 'action' => 'User\GetGrade', 'method' => 'GET'],
             ['path' => '/spider', 'action' => 'Spider', 'method' => 'GET'],
 
@@ -51,6 +51,10 @@ class Router extends BaseRouter
             ['path' => '/admin/distribute', 'action' => 'Admin\Distribute', 'method' => 'GET'],
             ['path' => '/admin/recommend', 'action' => 'Admin\Recommend', 'method' => 'POST'],
             ['path' => '/admin/active', 'action' => 'Admin\AddActive', 'method' => 'POST'],
+
+            //人脸检测模块
+            ['path' => '/facecheck/add_user', 'action' => 'FaceCheck\AddUser', 'method' => 'POST'],
+            ['path' => '/facecheck/show_user', 'action' => 'FaceCheck\ShowUser', 'method' => 'GET'],
         ];
         return $routers;
     }
